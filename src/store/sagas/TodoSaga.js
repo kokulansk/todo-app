@@ -1,7 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import { SUCCESS_FETCH_TODOS, ERROR_FETCH_TODOS, DELETE_TODOS_SUCCESS, DELETE_TODOS_ERROR } from '../actions/ActionTypes';
-
-
+import {SUCCESS_FETCH_TODOS, ERROR_FETCH_TODOS, DELETE_TODOS_SUCCESS, DELETE_TODOS_ERROR} from '../actions/ActionTypes';
 
 export function* fetchTodoSaga(action) {
     let todos = [

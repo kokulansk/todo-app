@@ -9,15 +9,24 @@ import { withRouter } from 'react-router-dom';
 export const TodoListItem = ({ todo }) => (
     <ListItem
         key={todo.id}>
-        <ListItemText primary={`${todo.id} .${todo.task}`}/>
+        <ListItemText primary={`${todo.id} .${todo.task}`} />
         {todo.isDone ? 'Done' : <Button variant="contained" color="primary" onClick={() => finishTodo(todo.id)}>Mark as done</Button>}
         <Button onClick={() => deleteTodo(todo.id)} variant="contained" color="secondary">Delete</Button>
     </ListItem>
 )
 
-const mapDispatchToProps = (dispatch) => ({
-	deleteTodo: (id) => dispatch(deleteTodo(id)),
-	finishTodo: (id) => dispatch(finishTodo(id))
-})
+const mapDispatchToProps = dispatch => {
+    return {
+        deleteTodo: (id) => dispatch(deleteTodo(id)),
+        finishTodo: (id) => dispatch(finishTodo(id))
+    }
+}
 
-export default connect(null, mapDispatchToProps)(withRouter(TodoListItem));
+const mapStateToProps = (state) => {
+    return {
+     
+    }
+  }
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(TodoListItem));

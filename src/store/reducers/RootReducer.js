@@ -1,7 +1,5 @@
 import { combineReducers } from "redux";
 
-import * as types from "../actions/ActionTypes";
-
 //reducers
 import errorReducer from "./ErrorReducer";
 import todoReducer from "./TodoReducer";
@@ -11,9 +9,7 @@ const appReducer = combineReducers({
     todos: todoReducer
 });
 
-const rootReducer = (state, action) => {
-    // state = null;
-  
+const rootReducer = (state, action) => {  
   return appReducer(state, action);
 };
 

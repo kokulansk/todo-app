@@ -1,25 +1,24 @@
-import actions from '../actions/ActionTypes';
+import {SUCCESS_FETCH_TODOS, DELETE_TODOS_SUCCESS, SUCCESS_EDIT_TODOS} from '../actions/ActionTypes';
 
 let initialState = {
-    todos: [],
-    isLoaded: false
+    todos: []
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case actions.SUCCESS_FETCH_TODOS:
+        case SUCCESS_FETCH_TODOS:
             return {
-                isLoaded: true,
+                ...state,
                 todos: action.todos
             };
 
-        case actions.DELETE_TODOS:
+        case DELETE_TODOS_SUCCESS:
             return {
                 ...state,
                 todos: state.todos.filter((todo) => { return todo.id != action.id })
             };
 
-        case actions.SUCCESS_EDIT_TODOS:
+        case SUCCESS_EDIT_TODOS:
             return {
                 ...state,
                 todos: state.map((todo) => {
